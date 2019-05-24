@@ -135,7 +135,7 @@ public class UpdatesActivity extends UpdatesListActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView headerTitle = (TextView) findViewById(R.id.header_title);
-        headerTitle.setText(getString(R.string.header_title_text));
+        headerTitle.setText(getString(R.string.header_text));
 
         TextView headerVersion = (TextView) findViewById(R.id.header_build_version);
         headerVersion.setText(SystemProperties.get(Constants.PROP_BUILD_VERSION) + " ● " +

@@ -8,12 +8,8 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_preferences"
-	android:icon="@drawable/ic_menu_preferences"
+        android:icon="@drawable/ic_menu_preferences"
         android:title="@string/menu_preferences"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_show_changelog"
-        android:title="@string/menu_show_changelog"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_local_update"
