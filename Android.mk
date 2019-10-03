@@ -10,13 +10,11 @@ LOCAL_USE_AAPT2 := true
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     com.google.android.material_material \
-    androidx.recyclerview_recyclerview \
+    androidx.core_core \
+    androidx.appcompat_appcompat \
     androidx.cardview_cardview \
     androidx.preference_preference \
-    androidx.appcompat_appcompat \
-    androidx.annotation_annotation
-
-LOCAL_STATIC_JAVA_LIBRARIES += guava
+    androidx.recyclerview_recyclerview \
 
 LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/res
@@ -38,13 +36,10 @@ updater_system_libs_path := $(abspath $(LOCAL_PATH))/system_libs
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-.PHONY: copy_updater_system_deps
-copy_updater_system_deps: $(updater_system_deps)
+$(LOCAL_BUILT_MODULE): $(updater_system_deps)
 	$(hide) mkdir -p $(updater_system_libs_path)
 	$(hide) rm -rf $(updater_system_libs_path)/*.jar
 	$(hide) cp $(updater_system_deps) $(updater_system_libs_path)/framework.jar
-
-$(LOCAL_BUILT_MODULE): copy_updater_system_deps
 	$(hide) echo "Fake: $@"
 	$(hide) mkdir -p $(dir $@)
 	$(hide) touch $@
